@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.itcast.spark</groupId>
+    <artifactId>bigdata-spark_2.11</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+    <modules>
+        <module>day02_spark</module>
+        <module>day03_spark</module>
+        <module>day04_spark</module>
+        <module>day05_spark</module>
+        <module>day06_spark</module>
+        <module>Test_day01</module>
+        <module>day07_spark</module>
+        <module>day08-spark</module>
+    </modules>
+
+
+</project>
