@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.itcast.flink</groupId>
+    <artifactId>course-flink</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>flink-day01</module>
+        <module>flink-day02</module>
+        <module>flink-day02</module>
+        <module>flink-day03</module>
+        <module>flink-day03</module>
+        <module>flink-day03</module>
+        <module>flink-day03</module>
+        <module>flink-day03</module>
+        <module>flink-day04</module>
+        <module>flink-day05</module>
+        <module>flink_day06</module>
+    </modules>
+
+
+</project>

@@ -1,0 +1,61 @@
+
+	// 定义Jedis实例变量
+	private Jedis jedis = null ;
+
+	@Override
+	public void open(Configuration parameters) throws Exception {
+		GenericObjectPoolConfig poolConfig = new GenericObjectPoolConfig();
+		poolConfig.setMaxTotal(8);
+		poolConfig.setMinIdle(2);
+		poolConfig.setMaxIdle(8);
+		// 通过JedisPool连接池，获取Jedis对象
+		JedisPool jedisPool = new JedisPool(
+			poolConfig, "node1.itcast.cn", 6379, 9000
+		);
+		// 获取Jedis对象
+		jedis = jedisPool.getResource() ;
+	}
+
+	@Override
+	public void asyncInvoke(String input, ResultFuture<String> resultFuture) throws Exception {
+		// 获取城市ID: 1,beijing ->  1
+		String cityName = input.trim().split(",")[1];
+		System.out.println("Input: " + input + ", cityName: " + cityName);
+
+		// 创建线程池
+		ExecutorService executorService = Executors.newFixedThreadPool(10);
+		// 向线程池中提交任务
+		Future<String> future = executorService.submit(
+			new Callable<String>() {
+				@Override
+				public String call() throws Exception {
+					return jedis.hget("AsyncReadRedis", cityName);
+				}
+			}
+		);
+
+		// 异步请求
+		CompletableFuture.supplyAsync(new Supplier<String>() {
+			@Override
+			public String get() {
+				String cityId = "0" ;
+				try {
+					cityId = future.get() ;
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				return cityId ;
+			}
+		}).thenAccept(new Consumer<String>() {
+			@Override
+			public void accept(String result) {
+				resultFuture.complete(Arrays.asList(result));
+			}
+		});
+	}
+
+	@Override
+	public void close() throws Exception {
+		// 关闭Jedis连接
+		if(null != jedis) jedis.close();
+	}

@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+
+ZOOKEEPER_HOME=/export/server/zookeeper
+
+EXEC_CMD=$1
+
+# Start Zookeeper
+/usr/bin/ssh node1.itcast.cn "cd ${ZOOKEEPER_HOME};source /etc/profile;${ZOOKEEPER_HOME}/bin/zkServer.sh ${EXEC_CMD}"
+
+
+a,3
+a,2
+a,7
+d,9
+b,6
+a,5
+b,3
+e,7
+e,4
+
+
+1
+1
+1
+2
+3
+4
+5
+5
+#!/usr/bin/env bash
+
+ZOOKEEPER_HOME=/export/server/zookeeper
+
+EXEC_CMD=$1
+
+# Start Zookeeper
+/usr/bin/ssh node1.itcast.cn "cd ${ZOOKEEPER_HOME};source /etc/profile;${ZOOKEEPER_HOME}/bin/zkServer.sh ${EXEC_CMD}"
+
+
+a,3
+a,2
+a,7
+d,9
+b,6
+a,5
+b,3
+e,7
+e,4
+
+
+1
+1
+1
+2
+3
+4
+5
+5
+1
+1
+1
+2
+3
+4
+5
+5
